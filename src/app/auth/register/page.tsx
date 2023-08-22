@@ -24,7 +24,7 @@ export default function RegisterPage() {
   const onSubmit: SubmitHandler<FieldValues> = async (body) => {
     setIsLoading(true);
     try {
-      const { data } = await axios.post('api/register', body);
+      const { data } = await axios.post('/api/register', body);
       console.log(data);
       router.push('/auth/login');
     } catch (error) {
@@ -84,7 +84,6 @@ export default function RegisterPage() {
             </p>
           </div>
         </form>
-
       </section>
     </>
   )
