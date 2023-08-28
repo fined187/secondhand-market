@@ -2,12 +2,19 @@
 import Link from "next/link";
 import { useState } from "react";
 import Navitem from "./Navitem";
+import { User } from "@prisma/client";
 
-export default function Navbar() {
+interface NavbarProps {
+  currentUser?: User | null;
+}
+
+export default function Navbar({ currentUser }: NavbarProps) {
   const [menu, setMenu] = useState(false);
   const handleMenu = () => {
     setMenu(!menu);
   };
+
+  console.log(currentUser);
 
   return (
     <>
@@ -22,7 +29,7 @@ export default function Navbar() {
             {menu === false ? <button onClick={handleMenu} >+</button> : <button onClick={handleMenu}>-</button>}
           </div>
           <div className="hidden sm:block">
-            <Navitem />
+            <Navitem currentUser={currentUser} />
           </div>
         </div>
         <div className="block sm:hidden">
