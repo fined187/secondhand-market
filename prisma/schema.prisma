@@ -55,9 +55,10 @@ model User {
   accounts      Account[]
   sessions      Session[]
   userType      UserType  @default(User)
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime  @default(now()) @map("updated_at")
-  @@map("users")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  products      Product[]
+  favoritesIds  String[]
 } 
 
 model VerificationToken {
@@ -68,3 +69,19 @@ model VerificationToken {
   @@unique([identifier, token])
   @@map("verificationtokens")
 }
+
+model Product {
+  id              String   @id @default(cuid())
+  title           String
+  description     String
+  imageSrc        String
+  category        String
+  userId          String
+  price           Int
+  latitude        Float
+  longitude       Float
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  user            User      @relation(fields: [userId], references: [id])
+}
+
