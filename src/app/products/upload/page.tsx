@@ -6,11 +6,13 @@ import { ImageUpload } from "@/components/ImageUpload";
 import Input from "@/components/Input";
 import { categories } from "@/components/categories/Categories";
 import { CategoryInput } from "@/components/categories/CategoryInput";
+import axios from "axios";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 export default function ProductUploadPage() {
-
   const [isLoading, setIsLoading] = useState(false);
   const {register, handleSubmit, setValue, watch, formState: {
     errors,
@@ -26,12 +28,28 @@ export default function ProductUploadPage() {
     }
   });
 
+  const router = useRouter();
+
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    
+    setIsLoading(true);
+    axios.post('/api/products', data).then(response => {
+      router.push(`/products/${response.data.id}`);
+    }).catch((error) => {
+      console.log(error);
+    }).finally(() => {
+      setIsLoading(false);
+    })
   };
 
   const imageSrc = watch("imageSrc");
   const category = watch("category");
+  const latitude = watch("latitude");
+  const longitude = watch("longitude");
+
+  const KakaoMap = dynamic(() => import("@/components/KakaoMap"), {
+    loading: () => <div>Loading...</div>,
+    ssr: false,
+  });
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value);
@@ -118,7 +136,11 @@ export default function ProductUploadPage() {
               }
             </div>
             <hr />
-            {/* Kakao Map*/}
+            <KakaoMap 
+              setCustomValue={setCustomValue} 
+              latitude={latitude} 
+              longitude={longitude}  
+            />
             <Button 
               label="상품 생성하기"          
             />
