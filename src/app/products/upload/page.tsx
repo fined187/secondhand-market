@@ -51,7 +51,7 @@ export default function ProductUploadPage() {
     ssr: false,
   });
 
-  const setCustomValue = (id: string, value: any) => {
+  const setCustomValue = (id: any, value: any) => {
     setValue(id, value);
   };
 
@@ -110,12 +110,12 @@ export default function ProductUploadPage() {
             <hr />
             <div
               className="
-              grid 
-              grid-cols-1 
-              md:grid-cols-2 
-              gap-3 
-              max-h-[50vh] 
-              overflow-y-auto
+                grid 
+                grid-cols-1 
+                md:grid-cols-2 
+                gap-3 
+                max-h-[50vh] 
+                overflow-y-auto
               "
             >
               {
@@ -136,10 +136,10 @@ export default function ProductUploadPage() {
               }
             </div>
             <hr />
-            <KakaoMap 
-              setCustomValue={setCustomValue} 
+            <KakaoMap
               latitude={latitude} 
               longitude={longitude}  
+              setCustomValue={setCustomValue}
             />
             <Button 
               label="상품 생성하기"          

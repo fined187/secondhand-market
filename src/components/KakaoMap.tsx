@@ -1,13 +1,13 @@
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 
 interface KakaoMapProps {
-  latitude: number,
-  longitude: number,
-  setCustomValue?: (id: string, value: any) => void,
-  detailPage?: boolean
+  latitude: number;
+  longitude: number;
+  setCustomValue?: (id: any, value: any) => void;
+  detailPage?: boolean;
 };
 
-const KakaoMap: any = ({
+const KakaoMap = ({
   latitude,
   longitude,
   setCustomValue,

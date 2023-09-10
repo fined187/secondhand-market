@@ -5,8 +5,9 @@ import { FaSkiing } from "react-icons/fa";
 
 export const Categories = () => {
   return (
-    <>
-    </>
+    <div>
+      Category
+    </div>
   )
 };
 

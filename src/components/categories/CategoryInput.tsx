@@ -1,11 +1,11 @@
 import { IconType } from "react-icons"
 
 interface CategoryInputProps {
-  icon: IconType,
-  label: string,
-  selected: boolean,
-  path: string,
-  onClick: (value:string) => void
+  icon: IconType;
+  label: string;
+  selected?: boolean;
+  path: string;
+  onClick: (value: string) => void;
 }
 
 export const CategoryInput = ({
@@ -28,7 +28,7 @@ export const CategoryInput = ({
           hover: border-orange-500 
           transition 
           cursor-pointer 
-          ${selected ? 'border-orange-500' : 'border-gray'}`}
+          ${selected ? 'border-orange-500' : 'border-neutral-200'}`}
         onClick={() => onClick(path)}
       >
         <Icon size={30} />
