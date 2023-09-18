@@ -23,9 +23,8 @@ export default function LoginPage() {
   const onSubmit: SubmitHandler<FieldValues> = async (body) => {
     setIsLoading(true);
     try {
-      const data = signIn('credentials', body);
-      console.log(data);
-      router.push('/auth/login');
+      const data = await signIn("credentials", body);
+
     } catch (error) {
       console.log(error);
     } finally {
@@ -62,6 +61,7 @@ export default function LoginPage() {
           />
           <Button
             label="Login"
+            isLoading={isLoading}
           />
           <div className="text-center">
             <p className="text-gray-400">

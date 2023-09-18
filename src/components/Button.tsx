@@ -7,6 +7,7 @@ interface ButtonProps {
   outline?: boolean;
   small?: boolean;
   icon?: IconType;
+  isLoading: boolean;
 }
 
 export default function Button({
@@ -16,6 +17,7 @@ export default function Button({
   outline,
   small,
   icon: Icon,
+  isLoading,
 }: ButtonProps) {
   return (
     <>

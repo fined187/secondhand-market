@@ -142,7 +142,8 @@ export default function ProductUploadPage() {
               setCustomValue={setCustomValue}
             />
             <Button 
-              label="상품 생성하기"          
+              label="상품 생성하기"     
+              isLoading={isLoading}     
             />
           </form>
         </div>

@@ -24,4 +24,14 @@ export async function middleware(req: NextRequest) {
   return NextResponse.next(); // pass
 };
 
+export const config = {
+  matcher:
+      [
+          "/admin/:path*",
+          '/auth/:path*',
+          '/chat',
+          '/products/upload'
+      ]
+}
+
 // export const config = {matcher: ["/admin/:path*", "/user"]};

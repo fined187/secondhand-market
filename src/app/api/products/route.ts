@@ -18,11 +18,13 @@ export async function POST(request: Request, response: Response) {
     longitude,
     price,
   } = body;
-  Object.keys(body).forEach((value) => {
+
+  Object.keys(body).forEach((value: any) => {
     if (!body[value]) {
       return NextResponse.error();
     }
-  })
+  });
+  
   const product = await prisma.product.create({
     data: {
       title,

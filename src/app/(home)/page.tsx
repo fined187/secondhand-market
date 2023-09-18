@@ -4,6 +4,7 @@ import EmptyState from "@/components/EmptyState";
 import ProductCard from "@/components/ProductCard";
 import getCurrentUser from "../actions/getCurrentUser";
 import FloatingButton from "@/components/FloatingButton";
+import { Categories } from "@/components/categories/Categories";
 
 interface HomeProps {
   searchParams: ProductParams;
@@ -18,7 +19,7 @@ export default async function Home({
 
   return (
     <Container>
-      {/* Category */}
+      <Categories />
       {
         products?.data.length === 0 ?
         (<EmptyState /> )
@@ -37,7 +38,7 @@ export default async function Home({
                 2xl: grid-cols-6
               "
             >
-              {products.data.map((product) => (
+              {products?.data.map((product) => (
                 <ProductCard 
                   currentUser={currentUser}
                   key={product.id}
