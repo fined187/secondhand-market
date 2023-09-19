@@ -5,7 +5,7 @@ import Navitem from "./Navitem";
 import { User } from "@prisma/client";
 
 interface NavbarProps {
-  currentUser?: User | null;
+  currentUser?: any;
 }
 
 export default function Navbar({ currentUser }: NavbarProps) {
@@ -13,8 +13,6 @@ export default function Navbar({ currentUser }: NavbarProps) {
   const handleMenu = () => {
     setMenu(!menu);
   };
-
-  console.log(currentUser);
 
   return (
     <>

@@ -41,6 +41,7 @@ export default function EmptyState({
             showReset && <Button
               outline
               label= '필터 초기화'
+              isLoading={false}
               onClick={() => router.push('/')}
             />
           }
