@@ -13,7 +13,7 @@ dayjs.extend(relativeTime);
 dayjs.locale("ko");
 
 interface ProductCardProps {
-  data: TProduct;
+  data: any;
   currentUser?: any;
 };
 

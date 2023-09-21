@@ -148,6 +148,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@lucasmogari/react-pagination@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@lucasmogari/react-pagination/-/react-pagination-1.1.3.tgz#8970449d6cf13a13ce5e898d67300b4faf6d669a"
+  integrity sha512-Jrhit5b1+tl508CTfsZ/3y5TW7rfoWmtVVQbOAAKnK2CkkH9KXEc2+s2oytILQ0u39IZAy/zJd1zlS/bssq4Nw==
+
 "@next-auth/prisma-adapter@^1.0.7":
   version "1.0.7"
   resolved "https://registry.npmjs.org/@next-auth/prisma-adapter/-/prisma-adapter-1.0.7.tgz"
