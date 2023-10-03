@@ -1,4 +1,4 @@
-import { Product, User } from "@prisma/client";
+import { Message, Product, User } from "@prisma/client";
 
 export type TUser = Omit<
     User,
@@ -8,6 +8,10 @@ export type TUser = Omit<
     updatedAt: string;
 };
 
+export type TUserWithChat = TUser & {
+    conversations: TConversation[];
+}
+
 export type TProduct = Omit<
     Product, "createdAt" | "updatedAt"
 > & {
@@ -15,3 +19,12 @@ export type TProduct = Omit<
     updatedAt: string;
 };
 
+
+export type TConversation = {
+    id: string;
+    messages: Message[];
+    users: TUser[];
+}
+
+
+export type TMessage = Message

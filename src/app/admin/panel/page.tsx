@@ -1,9 +1,10 @@
-const AdminPanelPage = () => {
+import React from 'react'
+
+const Panel = () => {
   return (
-    <div>
-      <h1>Page</h1>
-    </div>
-  );
+    <div>Admin Panel Page</div>
+  )
 }
 
-export default AdminPanelPage;
+export default Panel
+

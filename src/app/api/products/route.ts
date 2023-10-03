@@ -1,9 +1,13 @@
-import getCurrentUser from "@/app/actions/getCurrentUser";
 import { NextResponse } from "next/server";
-import prisma from '@/helpers/prismadb';
 
-export async function POST(request: Request, response: Response) {
+import prisma from "@/helpers/prismadb";
+import getCurrentUser from "@/app/actions/getCurrentUser";
+
+export async function POST(
+  request: Request,
+) {
   const currentUser = await getCurrentUser();
+
   if (!currentUser) {
     return NextResponse.error();
   }
@@ -18,13 +22,14 @@ export async function POST(request: Request, response: Response) {
     longitude,
     price,
   } = body;
+  // console.log(body);
 
   Object.keys(body).forEach((value: any) => {
     if (!body[value]) {
-      return NextResponse.error();
+      NextResponse.error();
     }
   });
-  
+
   const product = await prisma.product.create({
     data: {
       title,
@@ -33,10 +38,10 @@ export async function POST(request: Request, response: Response) {
       category,
       latitude,
       longitude,
-      price: Number(price),
-      userId: currentUser.id,
+      price: parseInt(price, 10),
+      userId: currentUser.id
     }
-  })
+  });
 
   return NextResponse.json(product);
 }
