@@ -46,7 +46,7 @@ model User {
   id             String    @id @default(cuid())
   name           String?
   email          String?   @unique
-  emailVerified  DateTime?
+  email_verified  DateTime?
   image          String?
   hashedPassword String?
   accounts       Account[]
@@ -54,7 +54,7 @@ model User {
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 
-  favoriteIds String[]
+  favoritesIds String[]
   products    Product[]
   comments    Comments[]
   userType    UserType   @default(User)
